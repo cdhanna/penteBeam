@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2702788247328787040}
-  - component: {fileID: 7636548159351604868}
+  - component: {fileID: 7894907501198756755}
   m_Layer: 0
-  m_Name: humanPlayer
+  m_Name: cpuPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7636548159351604868
+--- !u!114 &7894907501198756755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3774723818243513456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90e8a32acac049259cdab715e9aa3d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 794d8b260bdb44731a852cce07311f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 0}
   setRef:
-    Id: pieceSet.slimes
+    Id: pieceSet.turtles

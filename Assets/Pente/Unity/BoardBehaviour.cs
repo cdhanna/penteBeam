@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Pente.Core;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace Pente.Unity
       public SlotBehaviour slotBehaviour;
 
       public SlotEvent OnSlotSelected;
+
+      public Dictionary<Slot, SlotBehaviour> slotToBehaviour = new Dictionary<Slot, SlotBehaviour>();
 
       [ReadOnly]
       public Board board;
@@ -27,6 +30,7 @@ namespace Pente.Unity
             instance.board = this;
 
             instance.OnSelect.AddListener(HandleSlotSelection);
+            slotToBehaviour[slot] = instance;
             instance.OnCreate();
          }
 
@@ -36,6 +40,11 @@ namespace Pente.Unity
       public void HandleSlotSelection(SlotBehaviour slot)
       {
          OnSlotSelected?.Invoke(slot);
+      }
+
+      public SlotBehaviour GetSlotBehaviour(Slot slot)
+      {
+         return slotToBehaviour[slot];
       }
    }
 }

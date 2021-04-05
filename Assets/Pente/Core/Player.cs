@@ -25,22 +25,28 @@ namespace Pente.Core
    }
 
 
-   public class Player
+   public interface IPlayer
    {
-      public int PlayerCode;
-
-      public virtual IEnumerable<PlayerMoveProgress> MakeMove(Board board)
-      {
-         yield return new PlayerMove(Vector2Int.zero, CreateNewPiece());
-         yield break; // dont do anything.
-      }
-
-      public virtual Piece CreateNewPiece()
-      {
-         return new Piece
-         {
-            PlayerCode = PlayerCode
-         };
-      }
+      int PlayerCode { get; set; }
+      IEnumerable<PlayerMoveProgress> MakeMove(Board board);
+      Piece CreateNewPiece();
    }
+//   public class Player
+//   {
+//      public int PlayerCode;
+//
+//      public virtual IEnumerable<PlayerMoveProgress> MakeMove(Board board)
+//      {
+//         yield return new PlayerMove(Vector2Int.zero, CreateNewPiece());
+//         yield break; // dont do anything.
+//      }
+//
+//      public virtual Piece CreateNewPiece()
+//      {
+//         return new Piece
+//         {
+//            PlayerCode = PlayerCode
+//         };
+//      }
+//   }
 }

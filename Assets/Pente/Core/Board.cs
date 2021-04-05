@@ -23,7 +23,8 @@ namespace Pente.Core
                var position = new Vector2Int(x, y);
                var slot = new Slot
                {
-                  position = position
+                  position = position,
+                  piece = null
                };
                slots.Add(slot);
             }
@@ -34,10 +35,12 @@ namespace Pente.Core
       public bool IsStartOfNRow(Vector2Int position, Vector2Int direction, int n)
       {
          var start = GetSlot(position);
-         if (start.piece == null) return false;
+         if (start.piece == null || start.piece.PlayerCode == -1) return false;
          for (var i = 0; i < n; i++)
          {
             var currPosition = position + direction * i;
+
+
             if (!TryGetSlot(currPosition, out var slot))
             {
                return false;
@@ -56,6 +59,7 @@ namespace Pente.Core
 
          return true;
       }
+
 
       public bool TryGetPiece(Vector2Int position, out Piece piece)
       {
@@ -114,6 +118,6 @@ namespace Pente.Core
    [Serializable]
    public class Piece
    {
-      public int PlayerCode;
+      public int PlayerCode = -1;
    }
 }

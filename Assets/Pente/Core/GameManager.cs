@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Pente.Core
 {
@@ -25,8 +26,17 @@ namespace Pente.Core
    {
 
       public Board board;
-      public List<Player> players;
+      public List<IPlayer> players;
       public int currentPlayerIndex = 0;
+      public int seed;
+
+      public Random random;
+
+      public GameManager(int seed)
+      {
+         this.seed = seed;
+         random = new Random(seed);
+      }
 
       public IEnumerable<GameProgress> PlayGame()
       {
@@ -40,8 +50,13 @@ namespace Pente.Core
          {
             var activePlayer = players[currentPlayerIndex];
             yield return new NewTurn();
+            var foundMove = false;
             foreach (var progress in activePlayer.MakeMove(board))
             {
+               if (foundMove)
+               {
+                  break;
+               }
                switch (progress)
                {
                   case PlayerMove move:
@@ -50,9 +65,12 @@ namespace Pente.Core
                      {
                         throw new Exception($"Invalid move attempted {activePlayer} {move} ");
                      }
+
+                     foundMove = true;
                      board.SetPiece(move.position, move.piece);
                      break;
                }
+
                yield return progress;
             }
 
@@ -69,7 +87,7 @@ namespace Pente.Core
 
       }
 
-      public bool ValidateMove(Player player, PlayerMove move)
+      public bool ValidateMove(IPlayer player, PlayerMove move)
       {
          return true; // TODO validate a move...
       }
