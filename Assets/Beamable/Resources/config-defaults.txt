@@ -1,0 +1,7 @@
+{
+    "cid": "1338004997867802",
+    "alias": "ac-hackathon",
+    "pid": "DE_1338004997867803",
+    "platform": "https://api.beamable.com",
+    "socket": "https://api.beamable.com"
+}
