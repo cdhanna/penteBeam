@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ad3c56cf3d4b7e945e8dde44febdb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardSize: 3
+  boardSize: 6
   slotBehaviour: {fileID: 0}
   board:
     slots: []
