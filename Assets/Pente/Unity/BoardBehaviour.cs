@@ -9,15 +9,12 @@ namespace Pente.Unity
 
       public SlotBehaviour slotBehaviour;
 
+      public SlotEvent OnSlotSelected;
+
       [ReadOnly]
       public Board board;
 
-      public void Awake()
-      {
-         CreateBoard();
-      }
-
-      public void CreateBoard()
+      public Board CreateBoard()
       {
          board = new Board(boardSize);
 
@@ -27,10 +24,18 @@ namespace Pente.Unity
             instance.transform.localPosition = new Vector3(slot.position.x, 0, slot.position.y);
 
             instance.slot = slot;
-            instance.board = board;
+            instance.board = this;
 
+            instance.OnSelect.AddListener(HandleSlotSelection);
             instance.OnCreate();
          }
+
+         return board;
+      }
+
+      public void HandleSlotSelection(SlotBehaviour slot)
+      {
+         OnSlotSelected?.Invoke(slot);
       }
    }
 }

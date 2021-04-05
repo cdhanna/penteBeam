@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Pente.Core
+{
+
+
+
+   public class PlayerMoveProgress : GameProgress
+   {
+
+   }
+
+   public class PlayerMove : PlayerMoveProgress
+   {
+      public Vector2Int position;
+      public Piece piece;
+
+      public PlayerMove(Vector2Int position, Piece piece)
+      {
+         this.position = position;
+         this.piece = piece;
+      }
+   }
+
+
+   public class Player
+   {
+      public int PlayerCode;
+
+      public virtual IEnumerable<PlayerMoveProgress> MakeMove(Board board)
+      {
+         yield return new PlayerMove(Vector2Int.zero, CreateNewPiece());
+         yield break; // dont do anything.
+      }
+
+      public virtual Piece CreateNewPiece()
+      {
+         return new Piece
+         {
+            PlayerCode = PlayerCode
+         };
+      }
+   }
+}
