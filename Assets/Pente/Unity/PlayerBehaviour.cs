@@ -9,9 +9,9 @@ namespace Pente.Unity
    {
       public GameBehaviour game;
 
-      //public PlayerPieceSet pieces;
       public PlayerPieceSetRef setRef;
 
+      public int AwardedCaptures { get; set; }
       public int PlayerCode { get; set; }
 
       public abstract IEnumerable<PlayerMoveProgress> MakeMove(Board board);
@@ -24,9 +24,9 @@ namespace Pente.Unity
          };
       }
 
-      public Promise<PieceBehaviour> SpawnPiece(SlotBehaviour slotBehaviour, GameManager game)
+      public Promise<PieceBehaviour> SpawnPiece(SlotBehaviour slotBehaviour, GameBehaviour game)
       {
-         return setRef.Resolve().FlatMap(r => r.CreateRandomPiece(slotBehaviour, game));
+         return setRef.Resolve().FlatMap(r => r.CreateRandomPiece(slotBehaviour, game.game));
       }
 
       public virtual void OnCreated(GameBehaviour gameBehaviour)

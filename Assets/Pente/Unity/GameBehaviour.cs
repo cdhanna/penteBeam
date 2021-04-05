@@ -14,7 +14,7 @@ namespace Pente.Unity
       public int seed = 1;
       public GameManager game;
 
-      public HumanPlayerBehaviour HumanPrefab;
+      public List<HumanPlayerBehaviour> HumanPrefabs;
       public CpuPlayerBehaviour CpuPrefab;
 
       private IEnumerable<GameProgress> _gameProgress;
@@ -29,15 +29,15 @@ namespace Pente.Unity
          game = new GameManager(seed);
          game.board = boardBehaviour.CreateBoard();
          game.players = new List<IPlayer>();
-//         AddHumanPlayer(); // 2 humans vs eachother, local style.
+         AddHumanPlayer(); // 2 humans vs eachother, local style.
          AddHumanPlayer();
-         AddCpuPlayer();
+//         AddCpuPlayer();
 
          StartCoroutine(Play());
       }
 
       public void AddCpuPlayer() => AddPlayer(CpuPrefab);
-      public void AddHumanPlayer() => AddPlayer(HumanPrefab);
+      public void AddHumanPlayer() => AddPlayer(HumanPrefabs[game.players.Count % HumanPrefabs.Count]);
 
       public void AddPlayer<T>(T prefab) where T : PlayerBehaviour, IPlayer
       {
@@ -56,15 +56,27 @@ namespace Pente.Unity
 
          foreach (var progress in _gameProgress)
          {
-
-            // do stuff ? visual stuff?
+            var player = players[game.currentPlayerIndex];
             switch (progress)
             {
                case PlayerMove move:
 
-                  var player = players[game.currentPlayerIndex];
-                  foreach (var _ in SpawnPiece(player, move))
+                  foreach (var waitable in boardBehaviour.SpawnPiece(this, player, move))
                   {
+                     if (waitable is CustomYieldInstruction yielder)
+                     {
+                        yield return yielder;
+                     }
+                     yield return new WaitForEndOfFrame();
+                  }
+                  break;
+               case Capture capture:
+                  foreach (var waitable in boardBehaviour.DestroyPieces(this, player, capture))
+                  {
+                     if (waitable is CustomYieldInstruction yielder)
+                     {
+                        yield return yielder;
+                     }
                      yield return new WaitForEndOfFrame();
                   }
                   break;
@@ -78,11 +90,5 @@ namespace Pente.Unity
          }
       }
 
-      IEnumerable SpawnPiece(PlayerBehaviour current, PlayerMove move)
-      {
-         var slot = boardBehaviour.board.GetSlot(move.position);
-         var slotBehaviour = boardBehaviour.GetSlotBehaviour(slot);
-         yield return current.SpawnPiece(slotBehaviour, game).ToYielder();
-      }
    }
 }

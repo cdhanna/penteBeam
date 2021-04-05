@@ -27,6 +27,7 @@ namespace Pente.Core
 
    public interface IPlayer
    {
+      int AwardedCaptures { get; set; }
       int PlayerCode { get; set; }
       IEnumerable<PlayerMoveProgress> MakeMove(Board board);
       Piece CreateNewPiece();

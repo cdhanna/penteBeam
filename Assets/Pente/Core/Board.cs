@@ -31,6 +31,35 @@ namespace Pente.Core
          }
       }
 
+      public bool IsStartOfCapture(Vector2Int position, Vector2Int direction)
+      {
+         var start = GetSlot(position);
+         if (start.piece == null || start.piece.PlayerCode == -1) return false;
+
+         if (!TryGetSlot(position + direction * 3, out var end))
+         {
+            return false;
+         }
+
+         if (end.piece == null || end.piece.PlayerCode != start.piece.PlayerCode) return false;
+
+         if (!TryGetSlot(position + direction * 1, out var midSlot1))
+         {
+            return false;
+         }
+         if (!TryGetSlot(position + direction * 2, out var midSlot2))
+         {
+            return false;
+         }
+
+         if (midSlot1 == null || midSlot2 == null) return false;
+         if (midSlot1.piece == null || midSlot2.piece == null) return false;
+         if (midSlot1.piece.PlayerCode == -1 || midSlot2.piece.PlayerCode == -1) return false;
+         if (midSlot1.piece.PlayerCode != midSlot2.piece.PlayerCode) return false;
+         if (midSlot1.piece.PlayerCode == start.piece.PlayerCode) return false;
+
+         return true;
+      }
 
       public bool IsStartOfNRow(Vector2Int position, Vector2Int direction, int n)
       {
@@ -113,6 +142,7 @@ namespace Pente.Core
    {
       public Vector2Int position;
       public Piece piece;
+
    }
 
    [Serializable]

@@ -6,7 +6,6 @@ namespace Pente.Unity
 {
    public class CpuPlayerBehaviour : PlayerBehaviour, IPlayer
    {
-      public int PlayerCode { get; set; }
 
       public override IEnumerable<PlayerMoveProgress> MakeMove(Board board)
       {

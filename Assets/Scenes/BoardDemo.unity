@@ -152,8 +152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardBehaviour: {fileID: 2049882335}
   seed: 1
-  HumanPrefab: {fileID: 7636548159351604868, guid: 9697bd456e95d467dbc0214826eeed1c,
-    type: 3}
+  HumanPrefabs:
+  - {fileID: 7636548159351604868, guid: a1f56526154ea466a95999b122c81e13, type: 3}
+  - {fileID: 7636548159351604868, guid: 9697bd456e95d467dbc0214826eeed1c, type: 3}
   CpuPrefab: {fileID: 7894907501198756755, guid: c96ff3d03e0c94ba99c130e37911ab4a,
     type: 3}
   players: []
