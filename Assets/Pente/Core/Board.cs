@@ -14,6 +14,7 @@ namespace Pente.Core
       public Board(int size)
       {
          slots = new List<Slot>();
+
          this.size = size;
          for (var y = 0; y < size; y++)
          {
@@ -29,6 +30,62 @@ namespace Pente.Core
          }
       }
 
+
+      public bool IsStartOfNRow(Vector2Int position, Vector2Int direction, int n)
+      {
+         var start = GetSlot(position);
+         if (start.piece == null) return false;
+         for (var i = 0; i < n; i++)
+         {
+            var currPosition = position + direction * i;
+            if (!TryGetSlot(currPosition, out var slot))
+            {
+               return false;
+            }
+
+            if (slot.piece == null)
+            {
+               return false;
+            }
+
+            if (slot.piece.PlayerCode != start.piece.PlayerCode)
+            {
+               return false;
+            }
+         }
+
+         return true;
+      }
+
+      public bool TryGetPiece(Vector2Int position, out Piece piece)
+      {
+         var slot = GetSlot(position);
+
+         piece = slot.piece;
+         return piece != null;
+      }
+
+      public void SetPiece(Vector2Int position, Piece piece)
+      {
+         var slot = GetSlot(position);
+         slot.piece = piece;
+      }
+
+      public void RemovePiece(Vector2Int position)
+      {
+         var slot = GetSlot(position);
+         slot.piece = null;
+      }
+
+      public void MovePiece(Vector2Int origin, Vector2Int destination)
+      {
+         var originSlot = GetSlot(origin);
+         var destinationSlot = GetSlot(destination);
+
+         destinationSlot.piece = originSlot.piece;
+         originSlot.piece = null;
+      }
+
       public Slot GetSlot(Vector2Int position)
       {
          if (position.x < 0 || position.y < 0 || position.x >= size || position.y >= size)
@@ -38,6 +95,12 @@ namespace Pente.Core
          return slots.FirstOrDefault(s => s.position.Equals(position));
       }
 
+      public bool TryGetSlot(Vector2Int position, out Slot slot)
+      {
+          slot = slots.FirstOrDefault(s => s.position.Equals(position));
+          return slot != null;
+      }
+
       public IEnumerable<Slot> AllSlots => slots;
    }
 
@@ -45,5 +108,12 @@ namespace Pente.Core
    public class Slot
    {
       public Vector2Int position;
+      public Piece piece;
+   }
+
+   [Serializable]
+   public class Piece
+   {
+      public int PlayerCode;
    }
 }
