@@ -23,21 +23,53 @@ namespace Pente.Core
                var position = new Vector2Int(x, y);
                var slot = new Slot
                {
-                  position = position
+                  position = position,
+                  piece = null
                };
                slots.Add(slot);
             }
          }
       }
 
+      public bool IsStartOfCapture(Vector2Int position, Vector2Int direction)
+      {
+         var start = GetSlot(position);
+         if (start.piece == null || start.piece.PlayerCode == -1) return false;
+
+         if (!TryGetSlot(position + direction * 3, out var end))
+         {
+            return false;
+         }
+
+         if (end.piece == null || end.piece.PlayerCode != start.piece.PlayerCode) return false;
+
+         if (!TryGetSlot(position + direction * 1, out var midSlot1))
+         {
+            return false;
+         }
+         if (!TryGetSlot(position + direction * 2, out var midSlot2))
+         {
+            return false;
+         }
+
+         if (midSlot1 == null || midSlot2 == null) return false;
+         if (midSlot1.piece == null || midSlot2.piece == null) return false;
+         if (midSlot1.piece.PlayerCode == -1 || midSlot2.piece.PlayerCode == -1) return false;
+         if (midSlot1.piece.PlayerCode != midSlot2.piece.PlayerCode) return false;
+         if (midSlot1.piece.PlayerCode == start.piece.PlayerCode) return false;
+
+         return true;
+      }
 
       public bool IsStartOfNRow(Vector2Int position, Vector2Int direction, int n)
       {
          var start = GetSlot(position);
-         if (start.piece == null) return false;
+         if (start.piece == null || start.piece.PlayerCode == -1) return false;
          for (var i = 0; i < n; i++)
          {
             var currPosition = position + direction * i;
+
+
             if (!TryGetSlot(currPosition, out var slot))
             {
                return false;
@@ -56,6 +88,7 @@ namespace Pente.Core
 
          return true;
       }
+
 
       public bool TryGetPiece(Vector2Int position, out Piece piece)
       {
@@ -109,11 +142,12 @@ namespace Pente.Core
    {
       public Vector2Int position;
       public Piece piece;
+
    }
 
    [Serializable]
    public class Piece
    {
-      public int PlayerCode;
+      public int PlayerCode = -1;
    }
 }

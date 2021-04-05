@@ -16,7 +16,25 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: b68bf16d18ecb44f8bbde2682cee6eb4
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 0fb8dc4bef99f46f5b43938ea573ae00
+    m_Address: Assets/RPG Monster Duo PBR Polyart/Prefabs/slimePiece.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: bcbf9b54ba82342c8bc503c68c1b3613
+    m_Address: Assets/Pente/Unity/Pieces/slimeA.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 0d8b8497ce9a74e9d93faf8f19ee184e
+    m_Address: Assets/Pente/Unity/Pieces/turtleA.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8814f30ba6ace45e0b6d9273fe88b390, type: 2}
   m_SchemaSet:

@@ -1,24 +1,32 @@
+using System.Collections.Generic;
 using Pente.Core;
 using UnityEngine;
 
 namespace Pente.Unity
 {
-   public class HumanPlayerBehaviour : MonoBehaviour
+   public class HumanPlayerBehaviour : PlayerBehaviour, IPlayer
    {
-      public HumanPlayer player;
-      public GameBehaviour game;
+      private SlotBehaviour _selectedSlot;
 
-      public void OnCreated(GameBehaviour gameBehaviour, HumanPlayer humanPlayer)
+      public override void OnCreated(GameBehaviour gameBehaviour)
       {
-         player = humanPlayer;
-         game = gameBehaviour;
-
+         base.OnCreated(gameBehaviour);
          game.boardBehaviour.OnSlotSelected.AddListener(HandleSlotSelection);
       }
 
       public void HandleSlotSelection(SlotBehaviour slot)
       {
-         player.SetNextMove(slot.slot.position);
+         _selectedSlot = slot;
+      }
+
+      public override IEnumerable<PlayerMoveProgress> MakeMove(Board board)
+      {
+         _selectedSlot = null;
+         while (_selectedSlot == null)
+         {
+            yield return new PlayerMoveProgress();
+         }
+         yield return new PlayerMove(_selectedSlot.slot.position, CreateNewPiece());
       }
 
    }
