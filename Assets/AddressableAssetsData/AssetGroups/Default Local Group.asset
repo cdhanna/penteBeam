@@ -59,6 +59,18 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: d357a802e5ef4d44d829d89dfb1a341c
+    m_Address: Assets/RPG Monster Duo PBR Polyart/Materials/SlimePBR.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 748e031ffa5934f87aea641b7545e7f9
+    m_Address: Assets/RPG Monster Duo PBR Polyart/Materials/SlimePBR 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8814f30ba6ace45e0b6d9273fe88b390, type: 2}
   m_SchemaSet:
