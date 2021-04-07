@@ -975,6 +975,7 @@ GameObject:
   - component: {fileID: 674140695}
   - component: {fileID: 674140694}
   - component: {fileID: 674140693}
+  - component: {fileID: 674140696}
   m_Layer: 0
   m_Name: BattleUIController
   m_TagString: Untagged
@@ -1026,6 +1027,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674140696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674140692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c76c67fc7a5348209c1522a1b139dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quitButton: {fileID: 1102473808}
 --- !u!1 &720167436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1548,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 157895489}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1102473808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2223354485194771598, guid: 6f0751a034c9e4bf89946745fc1db329,
+    type: 3}
+  m_PrefabInstance: {fileID: 1560724448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1300692505 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 71472598787173956, guid: 6f0751a034c9e4bf89946745fc1db329,
@@ -1628,6 +1654,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3371957502033203944, guid: 6f0751a034c9e4bf89946745fc1db329,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50.19995
+      objectReference: {fileID: 0}
     - target: {fileID: 4817572535384778544, guid: 6f0751a034c9e4bf89946745fc1db329,
         type: 3}
       propertyPath: m_Name
