@@ -32,16 +32,17 @@ namespace Pente.Unity
 
             var pieces = await beamable.InventoryService.GetItems<PlayerPieceSet>();
 
-            if (pieces.Count == 0) // grant the first inventory item...
-            {
-               var defaultContent = await DefaultPieceSetRef.Resolve();
-
-               await beamable.InventoryService.AddItem(DefaultPieceSetRef.Id, defaultContent.GetAllSkinsEnabledProperty());
-               // auto select first skin...
-               pieces = await beamable.InventoryService.GetItems<PlayerPieceSet>();
-               await characterStat.Write(defaultContent.Id);
-               await skinStat.Write(defaultContent.GetAllSkinsEnabledProperty().First().Key);
-            }
+            await beamable.EnsureDefaultPieces(DefaultPieceSetRef, pieces, characterStat, skinStat);
+//            if (pieces.Count == 0) // grant the first inventory item...
+//            {
+//               var defaultContent = await DefaultPieceSetRef.Resolve();
+//
+//               await beamable.InventoryService.AddItem(DefaultPieceSetRef.Id, defaultContent.GetAllSkinsEnabledProperty());
+//               // auto select first skin...
+//               pieces = await beamable.InventoryService.GetItems<PlayerPieceSet>();
+//               await characterStat.Write(defaultContent.Id);
+//               await skinStat.Write(defaultContent.GetAllSkinsEnabledProperty().First().Key);
+//            }
 
             var stats = await beamable.User.GetStats(characterStat, skinStat);
 
@@ -70,6 +71,7 @@ namespace Pente.Unity
 
       public void HandleSlotSelection(SlotBehaviour slot)
       {
+         if (game.paused) return;
          _selectedSlot = slot;
       }
 

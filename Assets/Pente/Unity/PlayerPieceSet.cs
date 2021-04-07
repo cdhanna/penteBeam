@@ -26,14 +26,23 @@ namespace Pente.Unity
          return skins.ToDictionary(s => s.AssetGUID, s => "true");
       }
 
+      private Promise<GameObject> _loadPromise;
+
+      public Promise<GameObject> LoadPromise => _loadPromise ?? (_loadPromise =
+                                                       (!pieceReference.OperationHandle.IsValid()
+                                                          ? pieceReference.LoadAssetAsync()
+                                                          : pieceReference.OperationHandle.Convert<GameObject>()).Task
+                                                       .ToPromise());
+
       public Promise<PieceBehaviour> CreateRandomPiece(SlotBehaviour slot, GameManager game, string skinId=null)
       {
          var index = 0;
 
-         var taskHandle = !pieceReference.OperationHandle.IsValid() ? pieceReference.LoadAssetAsync() : pieceReference.OperationHandle.Convert<GameObject>();
-         var loading = taskHandle.Task.ToPromise();
+//         var taskHandle = !pieceReference.OperationHandle.IsValid() ? pieceReference.LoadAssetAsync() : pieceReference.OperationHandle.Convert<GameObject>();
+//         var loading = taskHandle.Task.ToPromise();
 
 
+         var loading = LoadPromise;
          var skin = skins.FirstOrDefault(s => s.AssetGUID.Equals(skinId));
          var materialPromise = new Promise<Material>();
          if (!string.IsNullOrEmpty(skinId) && skin != null)

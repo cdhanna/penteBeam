@@ -71,6 +71,36 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 360604b01abaf4f7e89981453765a189
+    m_Address: Assets/Pente/Unity/UI/Icon/SlimeA.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 435becf1a6c87464fa757383d21d01f7
+    m_Address: Assets/Pente/Unity/UI/Icon/Fiery.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 098063e22bfc74def8c218e199903325
+    m_Address: Assets/Pente/Unity/UI/Icon/Dog.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5ca69316dd8684c0ea4602b4c00a0b32
+    m_Address: Assets/Pente/Unity/UI/Icon/Boximon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 0db5400af059944b094aaacc188fb333
+    m_Address: Assets/Pente/Unity/UI/Icon/turtleA.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8814f30ba6ace45e0b6d9273fe88b390, type: 2}
   m_SchemaSet:

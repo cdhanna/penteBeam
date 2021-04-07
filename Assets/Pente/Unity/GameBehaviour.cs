@@ -30,7 +30,14 @@ namespace Pente.Unity
       [ReadOnly]
       public List<PlayerBehaviour> players;
 
+      [ReadOnly]
+      public PlayerBehaviour winningPlayer;
+
+      public bool gameOver;
+
       private PenteServerClient _client = new PenteServerClient();
+      public bool paused;
+
       private void Start()
       {
 
@@ -179,9 +186,12 @@ namespace Pente.Unity
                      }
                      yield return new WaitForEndOfFrame();
                   }
+
+                  winningPlayer = player;
                   break;
             }
 
+            gameOver = true;
             yield return new WaitForEndOfFrame();
 
          }
