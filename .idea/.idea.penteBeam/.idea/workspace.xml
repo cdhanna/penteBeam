@@ -1,23 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2610c930-798a-412b-97e3-9bd3a417a3ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.penteBeam/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.penteBeam/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.penteBeam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.penteBeam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beamable/Editor/content/pieceSet/dogs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beamable/Editor/content/pieceSet/dogs.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beamable/Microservices/PenteServer/PenteServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beamable/Microservices/PenteServer/PenteServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DogKnight/Animations/Dizzy.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DogKnight/Animations/Dizzy.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DogKnight/Animator/DogControl.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DogKnight/Animator/DogControl.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Pente/Unity/BoardBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Pente/Unity/BoardBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Pente/Unity/GameBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Pente/Unity/GameBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Pente/Unity/Pieces/BasePieceBehaviour.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Pente/Unity/Pieces/BasePieceBehaviour.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Pente/Unity/SlotBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Pente/Unity/SlotBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Pente/Unity/slot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Pente/Unity/slot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RPG Monster Duo PBR Polyart/Animators/TurtleShell 1.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RPG Monster Duo PBR Polyart/Animators/TurtleShell 1.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BoardDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BoardDemo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.beamable@0.9.1-PREVIEW.RC3/Runtime/UI/Scripts/AddressableSpriteLoader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Core/JsonHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/UI/Script/CaptureLabelBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/PieceBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.beamable@0.9.1-PREVIEW.RC3/Runtime/Modules/ModuleConfigurationObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/ReadonlyAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C88E78D9-5135-4A2E-BF09-9668E318691F/d7/d9cb83d5/YieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/PlayerPieceSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Core/ProxyPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Core/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8E224713-23EF-4267-9F37-03F16CEF7D28/65/42b6ff36/AssetReferenceSprite.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Core/Minimax.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Beamable/Microservices/PenteServer/GameStorage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Beamable/Microservices/PenteServer/Vector2IntStub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Core/Board.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/Editor/ReadonlyPropertyDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8E224713-23EF-4267-9F37-03F16CEF7D28/46/8c217817/AssetReferenceGameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/Pieces/turtleA.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C88E78D9-5135-4A2E-BF09-9668E318691F/64/6135c4f8/Coroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C88E78D9-5135-4A2E-BF09-9668E318691F/34/d7392453/WaitForEndOfFrame.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C88E78D9-5135-4A2E-BF09-9668E318691F/52/20948398/Vector2Int.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/PlayerBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/BoardBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/SlotBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/GameBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Beamable/Microservices/PenteServer/PenteServer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Core/NetworkObjects.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/03/958bcef3/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/CpuPlayerBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C958FBC5-4B5E-4F44-BA65-E7AA5160B49F/e9/ae4cf539/AmazonDynamoDBConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.4/Runtime/Behaviours/CinemachineTargetGroup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.beamable.server@0.9.1-PREVIEW.RC3/Editor/DockerCommands/ProcessCommandReturnable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Sample.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Beamable/AutoGenerated/Microservices/PenteServerClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Core/CpuPlayerBrain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8E224713-23EF-4267-9F37-03F16CEF7D28/c1/5d317d67/AssetReferenceT`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/f0/003755c6/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DieBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Unity/HumanPlayerBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pente/Core/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Pente/Unity/UI/Script/CaptureLabelBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Beamable/Microservices/PenteServer/PenteServer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Pente/Unity/SlotBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Pente/Unity/GameBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Pente/Unity/BoardBehaviour.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="selectedOptions">
-        <set />
-      </option>
+      <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="selectedOptions">
-        <set />
-      </option>
+      <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
 </project>

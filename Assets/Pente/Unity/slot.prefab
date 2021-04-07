@@ -128,10 +128,15 @@ MonoBehaviour:
     position: {x: 0, y: 0}
     piece:
       PlayerCode: 0
-  board:
-    slots: []
-    size: 0
+  board: {fileID: 0}
+  oddMaterial: {fileID: 2100000, guid: 19c5a2f8cbe0547e19e6e6f8aec39837, type: 2}
+  evenMaterial: {fileID: 2100000, guid: 052821051301bb849ab0e4f50ad32d10, type: 2}
+  isHover: 0
   ScatterHeight: 1
+  ApplyMaterial: 1
+  OnSelect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &4319758758609859141
 BoxCollider:
   m_ObjectHideFlags: 0
