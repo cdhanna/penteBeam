@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Beamable;
 using Beamable.Server.Clients;
+using Cinemachine;
 using Pente.Core;
 using UnityEngine;
 
@@ -18,6 +19,11 @@ namespace Pente.Unity
 
       public List<HumanPlayerBehaviour> HumanPrefabs;
       public CpuPlayerBehaviour CpuPrefab;
+
+      public GameObject CameraParent;
+      public CinemachineVirtualCamera VCamPrefab;
+      public CinemachineMixingCamera MixingCamera;
+      public CinemachineTargetGroup TargetGroup;
 
       private IEnumerable<GameProgress> _gameProgress;
 
@@ -142,6 +148,7 @@ namespace Pente.Unity
                   }
 
                   Debug.Log("carrying on with move stuff.");
+
 
                   foreach (var waitable in boardBehaviour.SpawnPiece(this, player, move))
                   {

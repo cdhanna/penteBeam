@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2702788247328787040}
   - component: {fileID: 7636548159351604868}
   m_Layer: 0
-  m_Name: humanPlayer
+  m_Name: humanPlayer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game: {fileID: 0}
   setRef:
-    Id: pieceSet.slimes
+    Id: pieceSet.dogs

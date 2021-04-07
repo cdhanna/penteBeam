@@ -21,7 +21,7 @@ namespace Beamable.Server.PenteServer
 
             var r = new Random();
             var seed = r.Next();
-            var game = new GameManager(seed, 8);
+            var game = new GameManager(seed, 12);
             game.players = new List<IPlayer>();
             // add in some dud players.
             game.players.Add(new ProxyPlayer
