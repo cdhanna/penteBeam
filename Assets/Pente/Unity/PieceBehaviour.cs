@@ -77,5 +77,10 @@ namespace Pente.Unity
 
       }
 
+      public void ApplyMaterial(Material material)
+      {
+         var renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+         renderer.material = material;
+      }
    }
 }

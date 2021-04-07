@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Beamable;
 using Beamable.Common;
 using Beamable.Common.Content;
+using Beamable.Common.Inventory;
 using Pente.Core;
 using UnityEditor;
 using UnityEngine;
@@ -13,34 +15,69 @@ namespace Pente.Unity
 {
    [CreateAssetMenu]
    [ContentType("pieceSet")]
-   public class PlayerPieceSet : ContentObject
+   public class PlayerPieceSet : ItemContent
    {
-      public List<AddressablePieceBehaviour> pieceReferences;
+      public AddressablePieceBehaviour pieceReference;
+      public List<AddressableMaterial> skins = new List<AddressableMaterial>();
 
-      public Promise<PieceBehaviour> CreateRandomPiece(SlotBehaviour slot, GameManager game)
+
+      public Dictionary<string, string> GetAllSkinsEnabledProperty()
+      {
+         return skins.ToDictionary(s => s.AssetGUID, s => "true");
+      }
+
+      public Promise<PieceBehaviour> CreateRandomPiece(SlotBehaviour slot, GameManager game, string skinId=null)
       {
          var index = 0;
-         var reference = pieceReferences[index];
 
-         var taskHandle = !reference.OperationHandle.IsValid() ? reference.LoadAssetAsync() : reference.OperationHandle.Convert<GameObject>();
+         var taskHandle = !pieceReference.OperationHandle.IsValid() ? pieceReference.LoadAssetAsync() : pieceReference.OperationHandle.Convert<GameObject>();
          var loading = taskHandle.Task.ToPromise();
-         return loading.FlatMap(template =>
+
+
+         var skin = skins.FirstOrDefault(s => s.AssetGUID.Equals(skinId));
+         var materialPromise = new Promise<Material>();
+         if (!string.IsNullOrEmpty(skinId) && skin != null)
+         {
+            var skinTaskHandle = !skin.OperationHandle.IsValid()
+               ? skin.LoadAssetAsync()
+               : skin.OperationHandle.Convert<Material>();
+            materialPromise = skinTaskHandle.Task.ToPromise();
+         }
+         else
+         {
+            materialPromise.CompleteSuccess(null);
+         }
+
+         return materialPromise.FlatMap(material => loading.FlatMap(template =>
          {
             var gob = Instantiate(template, slot.transform);
             var piece = gob.GetComponent<PieceBehaviour>();
+
+            if (material != null)
+            {
+               piece.ApplyMaterial(material);
+            }
+
             piece.OnCreated(slot, game);
 
             // play the spawn animation...
-
             return Promise<PieceBehaviour>.Successful(piece).WaitForSeconds(1);
-         });
+         }));
       }
    }
 
    [System.Serializable]
-   public class PlayerPieceSetRef : ContentRef<PlayerPieceSet>
+   public class PlayerPieceSetRef : ItemRef<PlayerPieceSet>
    {
 
+   }
+
+   [Serializable]
+   public class AddressableMaterial : AssetReferenceT<Material>
+   {
+      public AddressableMaterial(string guid) : base(guid)
+      {
+      }
    }
 
    [Serializable]

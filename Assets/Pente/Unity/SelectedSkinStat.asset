@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6afa5bfdc4eac48e09ca506e402af7fd, type: 3}
-  m_Name: turtles
+  m_Script: {fileID: 11500000, guid: 09d6340212c9c4c22b2d0d6e5e2450db, type: 3}
+  m_Name: SelectedSkinStat
   m_EditorClassIdentifier: 
-  _tags:
-  - base
-  pieceReferences:
-  - m_AssetGUID: 0d8b8497ce9a74e9d93faf8f19ee184e
-    m_SubObjectName: 
-    m_SubObjectType: 
+  StatKey: skin
+  Access: 0
+  DefaultValue: 
+  ProfanityChecked: 0

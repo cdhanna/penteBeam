@@ -26,7 +26,7 @@ namespace Pente.Unity
          };
       }
 
-      public Promise<PieceBehaviour> SpawnPiece(SlotBehaviour slotBehaviour, GameBehaviour game)
+      public virtual Promise<PieceBehaviour> SpawnPiece(SlotBehaviour slotBehaviour, GameBehaviour game)
       {
          return setRef.Resolve().FlatMap(r => r.CreateRandomPiece(slotBehaviour, game.game));
       }

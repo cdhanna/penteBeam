@@ -41,6 +41,24 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: b3ad386aba28716448079dcf67d7aede
+    m_Address: Assets/RPG Monster Duo PBR Polyart/Materials/TurtleShellPBR.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 6694550849a314c14bf8e89edf28d8f9
+    m_Address: Assets/RPG Monster Duo PBR Polyart/Materials/TurtleShellPBR 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 421140039854e8c42938a8cb73d3480c
+    m_Address: Assets/DogKnight/Material/Polyart.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8814f30ba6ace45e0b6d9273fe88b390, type: 2}
   m_SchemaSet:

@@ -45,4 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game: {fileID: 0}
   setRef:
-    Id: pieceSet.turtles
+    Id: items.pieceSet.turtles
+  characterStat: {fileID: 11400000, guid: b2ef5da245b6d4dd7a2e5283194d03b9, type: 2}
+  skinStat: {fileID: 11400000, guid: 1d69b859860804cb4b3959b5bee18471, type: 2}
+  DefaultPieceSetRef:
+    Id: items.pieceSet.turtles

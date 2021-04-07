@@ -259,7 +259,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324045190}
-  m_LocalRotation: {x: 0.42121133, y: -0.025362965, z: 0.011784664, w: 0.9065313}
+  m_LocalRotation: {x: 0.42121133, y: -0.025363015, z: 0.01178469, w: 0.9065313}
   m_LocalPosition: {x: -0.96999997, y: 11.408372, z: -10.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -499,7 +499,6 @@ MonoBehaviour:
     currentPlayerIndex: 0
     seed: 1066981296
   HumanPrefabs:
-  - {fileID: 7636548159351604868, guid: a1f56526154ea466a95999b122c81e13, type: 3}
   - {fileID: 7636548159351604868, guid: 9697bd456e95d467dbc0214826eeed1c, type: 3}
   CpuPrefab: {fileID: 7894907501198756755, guid: c96ff3d03e0c94ba99c130e37911ab4a,
     type: 3}
@@ -1480,8 +1479,8 @@ MonoBehaviour:
   m_ScreenY: 0.5
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneWidth: 0.87
+  m_SoftZoneHeight: 0.77
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -1591,7 +1590,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916950793}
-  m_LocalRotation: {x: 0.42121133, y: -0.025362965, z: 0.011784664, w: 0.9065313}
+  m_LocalRotation: {x: 0.42121133, y: -0.025363015, z: 0.01178469, w: 0.9065313}
   m_LocalPosition: {x: 0.54, y: 11.87, z: -10.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

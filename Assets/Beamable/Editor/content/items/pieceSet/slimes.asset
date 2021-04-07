@@ -14,7 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tags:
   - base
-  pieceReferences:
-  - m_AssetGUID: bcbf9b54ba82342c8bc503c68c1b3613
+  icon:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+  clientPermission:
+    writeSelf: 1
+  pieceReference:
+    m_AssetGUID: bcbf9b54ba82342c8bc503c68c1b3613
+    m_SubObjectName: 
+    m_SubObjectType: 
+  skins:
+  - m_AssetGUID: b3ad386aba28716448079dcf67d7aede
+    m_SubObjectName: 
+    m_SubObjectType: 
+  - m_AssetGUID: 6694550849a314c14bf8e89edf28d8f9
     m_SubObjectName: 
     m_SubObjectType: 
