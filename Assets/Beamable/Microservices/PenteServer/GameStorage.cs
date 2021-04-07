@@ -28,15 +28,14 @@ namespace Beamable.Server.PenteServer
 
       public async Task<BoardData> LoadGame(long userId)
       {
-         var stats = await _services.Stats.GetProtectedPlayerStats(userId, new[] {"gameSeed", "gameState"});
+         var stats = await _services.Stats.GetProtectedPlayerStats(userId, new[] {"gameState"});
          var json = stats["gameState"];
-         var seed = int.Parse(stats["gameSeed"]);
          var game = JsonHelper.DeserializeBoard(json);
 
          return new BoardData
          {
             Game = game,
-            Seed = seed
+            Seed = game.seed
          };
       }
 

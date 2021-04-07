@@ -39,13 +39,14 @@ namespace Pente.Unity
                await beamable.InventoryService.AddItem(DefaultPieceSetRef.Id, defaultContent.GetAllSkinsEnabledProperty());
                // auto select first skin...
                pieces = await beamable.InventoryService.GetItems<PlayerPieceSet>();
-               characterStat.Write(defaultContent.Id);
-               skinStat.Write(defaultContent.GetAllSkinsEnabledProperty().First().Key);
+               await characterStat.Write(defaultContent.Id);
+               await skinStat.Write(defaultContent.GetAllSkinsEnabledProperty().First().Key);
             }
 
             var stats = await beamable.User.GetStats(characterStat, skinStat);
 
 
+            // FIRST TIME USER: sequence contains no matching elements
             var selectedPieceSet = pieces.First(p => p.ItemContent.Id.Equals(stats[characterStat]));
             var selectedSkinKvp =
                selectedPieceSet.Properties.FirstOrDefault(kvp => kvp.Key.Equals(stats.Get(skinStat)));
@@ -74,6 +75,7 @@ namespace Pente.Unity
 
       public override Promise<PieceBehaviour> SpawnPiece(SlotBehaviour slotBehaviour, GameBehaviour game)
       {
+         // TODO: this can break if the first time user proc hasn't finished
          return pieceSet.CreateRandomPiece(slotBehaviour, game.game, skinId);
       }
 
