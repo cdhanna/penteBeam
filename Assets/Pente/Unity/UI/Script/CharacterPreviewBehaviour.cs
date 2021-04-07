@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Beamable.Api.Payments;
+using Beamable.Common.Api.Inventory;
 using Beamable.Common.Shop;
 using Beamable.UI.Scripts;
 using Pente.Unity;
@@ -21,6 +22,9 @@ public class CharacterPreviewBehaviour : MonoBehaviour
 
 [ReadOnly]
     public PlayerPieceSet pieceSet;
+
+    public InventoryObject<PlayerPieceSet> item;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,14 +39,30 @@ public class CharacterPreviewBehaviour : MonoBehaviour
 
     public async void OnCreated()
     {
-        var contentId = listing.ClientData["id"];
-        var contentRef = new PlayerPieceSetRef {Id = contentId};
+        if (listing != null)
+        {
+            var contentId = listing.ClientData["id"];
+            var contentRef = new PlayerPieceSetRef {Id = contentId};
+            pieceSet = await contentRef.Resolve();
+        }
 
-        pieceSet = await contentRef.Resolve();
+        if (item != null && pieceSet == null)
+        {
+            pieceSet = item.ItemContent;
+        }
+
         var sprite = await AddressableSpriteLoader.LoadSprite(pieceSet.icon);
-        Icon.sprite = sprite;
+        if (Icon)
+        {
+            Icon.sprite = sprite;
 
-        Button.onClick.AddListener(() => { controller.SetFor(listing, this); });
+        }
+
+        if (Button)
+        {
+            Button.onClick.AddListener(() => { controller.SetFor(listing, item, this); });
+
+        }
     }
 
     public void Unselect()

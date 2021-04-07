@@ -10,33 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14ae295abc57d4046906c98c15f3ea23, type: 3}
-  m_Name: slimeSkin2
+  m_Name: dog
   m_EditorClassIdentifier: 
   _tags:
   - base
   price:
     type: currency
     symbol: currency.gems
-    amount: 15
+    amount: 50
   offer:
     titles:
-      HasValue: 1
+      HasValue: 0
       Value:
-        listData:
-        - Red
+        listData: []
     descriptions:
       HasValue: 0
       Value:
-        listData:
-        - 
+        listData: []
     obtainCurrency: []
     obtainItems:
-    - contentId: items.skinUpgrade
-      properties:
-      - name: index
-        value: 1
-      - name: id
-        value: items.pieceSet.slimes
+    - contentId: items.pieceSet.dogs
+      properties: []
   activePeriod:
     HasValue: 0
     Value:
@@ -49,10 +43,7 @@ MonoBehaviour:
     Value: 0
   playerStatRequirements:
     HasValue: 0
-    Value:
-    - stat: 
-      constraint: 
-      value: 0
+    Value: []
   offerRequirements:
     HasValue: 0
     Value: []
@@ -62,7 +53,7 @@ MonoBehaviour:
       keys:
       - id
       values:
-      - items.pieceSet.slimes
+      - items.pieceSet.dogs
   activeDurationSeconds:
     HasValue: 0
     Value: 0
