@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Beamable;
 using Beamable.Common;
 using Beamable.Common.Content;
 using Pente.Core;
@@ -18,17 +19,20 @@ namespace Pente.Unity
 
       public Promise<PieceBehaviour> CreateRandomPiece(SlotBehaviour slot, GameManager game)
       {
-         var index = game.random.Next(pieceReferences.Count);
+         var index = 0;
          var reference = pieceReferences[index];
 
          var taskHandle = !reference.OperationHandle.IsValid() ? reference.LoadAssetAsync() : reference.OperationHandle.Convert<GameObject>();
          var loading = taskHandle.Task.ToPromise();
-         return loading.Map(template =>
+         return loading.FlatMap(template =>
          {
             var gob = Instantiate(template, slot.transform);
             var piece = gob.GetComponent<PieceBehaviour>();
             piece.OnCreated(slot, game);
-            return piece;
+
+            // play the spawn animation...
+
+            return Promise<PieceBehaviour>.Successful(piece).WaitForSeconds(1);
          });
       }
    }

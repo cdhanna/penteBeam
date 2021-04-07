@@ -1,0 +1,16 @@
+{
+    "name": "Pente.Core",
+    "references": [
+        "Beamable.SmallerJSON",
+        "Unity.Beamable.Runtime.Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

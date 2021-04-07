@@ -23,7 +23,12 @@ namespace Pente.Unity
       public Board CreateBoard()
       {
          board = new Board(boardSize);
+         InstantiateBoardSlots(board);
+         return board;
+      }
 
+      public void InstantiateBoardSlots(Board board)
+      {
          foreach (var slot in board.AllSlots)
          {
             var instance = Instantiate(slotBehaviour, transform);
@@ -36,8 +41,6 @@ namespace Pente.Unity
             slotToBehaviour[slot.position] = instance;
             instance.OnCreate();
          }
-
-         return board;
       }
 
       public IEnumerable SpawnPiece(GameBehaviour game, PlayerBehaviour current, PlayerMove move)
@@ -48,6 +51,33 @@ namespace Pente.Unity
          yield return promise.ToYielder();
 
          slotToPiece[slot.position] = promise.GetResult();
+
+         // are there any adjacent neighbors?
+         foreach (var neighbor in board.GetNeighbors(slot))
+         {
+            if (board.TryGetPiece(neighbor.position, out var piece) && piece.PlayerCode != current.PlayerCode)
+            {
+               slotToPiece[neighbor.position].StartNeighborPlacement();
+            }
+
+         }
+
+      }
+
+      public IEnumerable GiveWinningTeam(GameBehaviour game, PlayerBehaviour current)
+      {
+         foreach (var slot in board.AllSlots)
+         {
+            if (slotToPiece.TryGetValue(slot.position, out var piece))
+            {
+               var isWinner = slot.piece.PlayerCode == current.PlayerCode;
+               if (isWinner)
+               {
+                  piece.StartWinAnimation();
+               }
+            }
+         }
+         yield return new WaitForSecondsRealtime(1);
       }
 
       public IEnumerable DestroyPieces(GameBehaviour game, PlayerBehaviour current, Capture capture)
@@ -58,9 +88,24 @@ namespace Pente.Unity
          slotToPiece.Remove(capture.Captured1.position);
          slotToPiece.Remove(capture.Captured2.position);
 
-         Destroy(captured1.gameObject);
-         Destroy(captured2.gameObject);
 
+         var killer1 = slotToPiece[capture.Dest.position];
+         var killer1AttackDir = (capture.Origin.position - capture.Dest.position);
+         killer1.StartAttackAnimation(killer1AttackDir);
+         var killer2 = slotToPiece[capture.Origin.position];
+         killer2.StartAttackAnimation(-killer1AttackDir);
+
+         yield return new WaitForSecondsRealtime(1);
+
+         captured1.StartCapturedAnimation();
+         captured2.StartCapturedAnimation();
+
+
+         yield return new WaitForSecondsRealtime(3);
+//         yield return capture1Routine;
+//         yield return capture2Routine;
+//         Destroy(captured1.gameObject);
+//         Destroy(captured2.gameObject);
          yield break; // TODO do some cool death animations here
       }
 

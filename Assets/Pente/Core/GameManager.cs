@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Beamable.Common;
 using UnityEngine;
 using Random = System.Random;
 
@@ -38,6 +39,7 @@ namespace Pente.Core
 
    }
 
+   [Serializable]
    public class GameManager
    {
 
@@ -48,19 +50,38 @@ namespace Pente.Core
       public Random random;
 
 
-      public GameManager(int seed)
+      public GameManager(GameManager other)
+      {
+         this.seed = other.seed;
+         this.board = new Board(other.board);
+         this.currentPlayerIndex = other.currentPlayerIndex;
+         this.random = new Random(this.seed); // TODO: how do we make sure the same number of randoms have been called?
+         this.players = other.players.Select(p => p.Clone()).ToList();
+      }
+
+      public GameManager(int seed, int size)
       {
          this.seed = seed;
+         BeamableLogger.Log("Setting log seed to " + seed);
          random = new Random(seed);
+         board = new Board(size);
+      }
+
+      public GameManager(int seed, Board board)
+      {
+         this.seed = seed;
+         BeamableLogger.Log("Setting log seed to " + seed);
+         random = new Random(seed);
+         this.board = board;
       }
 
       public IEnumerable<GameProgress> PlayGame()
       {
          // assign player codes...
-         for (var i = 0; i < players.Count; i++)
-         {
-            players[i].PlayerCode = i;
-         }
+//         for (var i = 0; i < players.Count; i++)
+//         {
+//            players[i].PlayerCode = i;
+//         }
 
          while (true)
          {
@@ -87,7 +108,7 @@ namespace Pente.Core
 
                      // check for captures, and emit those events if required...
                      yield return move;
-                     if (CheckForCapture(move.position, out var capture))
+                     while (CheckForCapture(move.position, out var capture))
                      {
                         board.RemovePiece(capture.Captured1.position);
                         board.RemovePiece(capture.Captured2.position);
@@ -147,6 +168,16 @@ namespace Pente.Core
          return false;
       }
 
+      public void ApplyMove(PlayerMove move)
+      {
+         board.SetPiece(move.position, move.piece);
+         if (CheckForCapture(move.position, out var cap))
+         {
+            var player = players.FirstOrDefault(p => p.PlayerCode == cap.Origin.piece.PlayerCode);
+            player.AwardedCaptures += 1;
+         }
+      }
+
       public bool CheckWin()
       {
          // check if there are N pieces in a row...
@@ -164,6 +195,28 @@ namespace Pente.Core
          }
 
          return false; // TODO check if someone has won yet...
+      }
+
+      public void SetSeed(int i)
+      {
+         BeamableLogger.Log("Setting log seed to " + seed);
+         seed = i;
+         random = new Random(seed);
+      }
+
+      public int NextRandom()
+      {
+         return random.Next();
+      }
+
+      public int NextRandom(int max)
+      {
+         return random.Next(max);
+      }
+
+      public GameManager Clone()
+      {
+         return new GameManager(this);
       }
    }
 }

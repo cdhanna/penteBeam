@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Pente.Core
 
    }
 
+   [Serializable]
    public class PlayerMove : PlayerMoveProgress
    {
       public Vector2Int position;
@@ -29,8 +31,10 @@ namespace Pente.Core
    {
       int AwardedCaptures { get; set; }
       int PlayerCode { get; set; }
+      string PlayerType { get; set; }
       IEnumerable<PlayerMoveProgress> MakeMove(Board board);
       Piece CreateNewPiece();
+      IPlayer Clone();
    }
 //   public class Player
 //   {

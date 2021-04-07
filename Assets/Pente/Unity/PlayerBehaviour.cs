@@ -14,6 +14,8 @@ namespace Pente.Unity
       public int AwardedCaptures { get; set; }
       public int PlayerCode { get; set; }
 
+      public abstract string PlayerType { get; set; }
+
       public abstract IEnumerable<PlayerMoveProgress> MakeMove(Board board);
 
       public virtual Piece CreateNewPiece()
@@ -33,5 +35,7 @@ namespace Pente.Unity
       {
          game = gameBehaviour;
       }
+
+      public abstract IPlayer Clone();
    }
 }

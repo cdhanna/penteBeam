@@ -11,6 +11,11 @@ namespace Pente.Core
       public List<Slot> slots;
       public int size;
 
+      public Board(Board other)
+      {
+         size = other.size;
+         slots = other.slots.Select(s => s.Clone()).ToList();
+      }
       public Board(int size)
       {
          slots = new List<Slot>();
@@ -135,6 +140,26 @@ namespace Pente.Core
       }
 
       public IEnumerable<Slot> AllSlots => slots;
+
+      public Board Clone()
+      {
+         return new Board(this);
+      }
+
+      public IEnumerable<Slot> GetNeighbors(Slot slot)
+      {
+         var directions = new Vector2Int[]
+         {
+            Vector2Int.down, Vector2Int.one, Vector2Int.left, Vector2Int.up, Vector2Int.right
+         };
+         foreach (var dir in directions)
+         {
+            if (TryGetSlot(slot.position + dir, out var neighbor))// && TryGetPiece(slot.position + dir, out var piece))
+            {
+               yield return neighbor;
+            }
+         }
+      }
    }
 
    [Serializable]
@@ -143,6 +168,15 @@ namespace Pente.Core
       public Vector2Int position;
       public Piece piece;
 
+      public Slot Clone()
+      {
+         return new Slot
+         {
+            position = position,
+            piece = piece == null ? null : new Piece{PlayerCode = piece.PlayerCode}
+         };
+
+      }
    }
 
    [Serializable]

@@ -19,6 +19,8 @@ namespace Pente.Unity
          _selectedSlot = slot;
       }
 
+      public override string PlayerType { get; set; } = "human";
+
       public override IEnumerable<PlayerMoveProgress> MakeMove(Board board)
       {
          _selectedSlot = null;
@@ -27,6 +29,15 @@ namespace Pente.Unity
             yield return new PlayerMoveProgress();
          }
          yield return new PlayerMove(_selectedSlot.slot.position, CreateNewPiece());
+      }
+
+      public override IPlayer Clone()
+      {
+         return new ProxyPlayer()
+         {
+            AwardedCaptures = AwardedCaptures,
+            PlayerCode = PlayerCode
+         };
       }
 
    }

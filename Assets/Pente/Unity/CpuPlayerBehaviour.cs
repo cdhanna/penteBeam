@@ -7,27 +7,28 @@ namespace Pente.Unity
    public class CpuPlayerBehaviour : PlayerBehaviour, IPlayer
    {
 
+      public CpuPlayerBrain brain = new CpuPlayerBrain();
+      public override string PlayerType { get; set; } = "cpu";
+
       public override IEnumerable<PlayerMoveProgress> MakeMove(Board board)
       {
+         brain.game = game.game;
+         brain.PlayerCode = PlayerCode;
+         brain.AwardedCaptures = AwardedCaptures;
 
-         // TODO: simulate some random thinking time...
-
-         // find a random slot...
-
-         var randomOffset = game.game.random.Next(board.slots.Count);
-         for (var i = 0; i < board.slots.Count; i++)
+         foreach (var p in brain.MakeMove(board))
          {
-            yield return new PlayerMoveProgress();
-            var n = (i + randomOffset) % board.slots.Count;
-            if (board.slots[n].piece == null)
-            {
-               yield return new PlayerMove(board.slots[n].position, CreateNewPiece());
-
-            }
+            yield return p;
          }
-
-
       }
 
+      public override IPlayer Clone()
+      {
+         return new CpuPlayerBrain()
+         {
+            AwardedCaptures = AwardedCaptures,
+            PlayerCode = PlayerCode
+         };
+      }
    }
 }
