@@ -101,6 +101,39 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 641e51ebbef02464da661776af055548
+    m_Address: Assets/Meshtint Free Boximon Cyclopes Mega Toon Series/Materials/Boximon
+      Cyclopes2.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 3ed1ef4a318db4f5d90162541c33e6a5
+    m_Address: Assets/Meshtint Free Boximon Cyclopes Mega Toon Series/Materials/Boximon
+      Cyclopes 1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 405f305dfba214fd69f59b1de3c383d4
+    m_Address: Assets/Pente/Unity/Pieces/Box2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: fe4aa44396d334668a8b8e06074b52a6
+    m_Address: Assets/Pente/Unity/Pieces/Box1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: f1779f0d8b6a05547af012556b3fd93a
+    m_Address: Assets/Meshtint Free Boximon Fiery Mega Toon Series/Materials/Boximon
+      Fiery.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8814f30ba6ace45e0b6d9273fe88b390, type: 2}
   m_SchemaSet:

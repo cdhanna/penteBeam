@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6afa5bfdc4eac48e09ca506e402af7fd, type: 3}
+  m_Name: Box2
+  m_EditorClassIdentifier: 
+  _tags:
+  - base
+  icon:
+    m_AssetGUID: 5ca69316dd8684c0ea4602b4c00a0b32
+    m_SubObjectName: 
+    m_SubObjectType: 
+  clientPermission:
+    writeSelf: 0
+  pieceReference:
+    m_AssetGUID: 405f305dfba214fd69f59b1de3c383d4
+    m_SubObjectName: 
+    m_SubObjectType: 
+  skins:
+  - m_AssetGUID: 3ed1ef4a318db4f5d90162541c33e6a5
+    m_SubObjectName: 
+    m_SubObjectType: 
+  - m_AssetGUID: 641e51ebbef02464da661776af055548
+    m_SubObjectName: 
+    m_SubObjectType: 
